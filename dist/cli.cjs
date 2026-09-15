@@ -47074,8 +47074,8 @@ function authorityRank(authority) {
   }
 }
 var actionContract = {
-  name: "Postman Onboarding: GCP Spec Discovery",
-  description: "Discover GCP-hosted API specs and expose a spec path for Postman onboarding. Part of the Postman API Onboarding suite.",
+  name: "Postman Enterprise Automation: GCP Spec Discovery",
+  description: "Discover GCP-hosted API specs and expose a spec path for Postman onboarding. Part of the Postman Enterprise Automation Suite.",
   inputs: {
     mode: {
       description: "Discovery mode: resolve-one selects the single best service for this repository; discover-many exports every exportable candidate.",

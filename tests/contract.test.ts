@@ -58,7 +58,7 @@ describe('action contract', () => {
     expect(contractInputNames).toEqual(LOCKED_INPUT_ORDER);
     expect(Object.keys(actionManifest.outputs)).toEqual(LOCKED_OUTPUT_ORDER);
     expect(contractOutputNames).toEqual(LOCKED_OUTPUT_ORDER);
-    expect(actionContract.name).toBe('Postman Onboarding: GCP Spec Discovery');
+    expect(actionContract.name).toBe('Postman Enterprise Automation: GCP Spec Discovery');
   });
 
   it('keeps every action.yml output description aligned with the contract', () => {
