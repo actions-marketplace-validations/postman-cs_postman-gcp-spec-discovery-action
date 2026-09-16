@@ -192,9 +192,9 @@ export interface ExportSummary {
 }
 
 export const actionContract: GCPSpecDiscoveryActionContract = {
-  name: 'Postman Onboarding: GCP Spec Discovery',
+  name: 'Postman Enterprise Automation: GCP Spec Discovery',
   description:
-    'Discover GCP-hosted API specs and expose a spec path for Postman onboarding. Part of the Postman API Onboarding suite.',
+    'Discover GCP-hosted API specs and expose a spec path for Postman onboarding. Part of the Postman Enterprise Automation Suite.',
   inputs: {
     mode: {
       description: 'Discovery mode: resolve-one selects the single best service for this repository; discover-many exports every exportable candidate.',
