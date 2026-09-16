@@ -8,6 +8,7 @@ import { buildExecutionOutputs, resolveInputs } from '../src/runtime.js';
 
 const repoRoot = resolve(import.meta.dirname, '..');
 const actionManifest = parse(readFileSync(resolve(repoRoot, 'action.yml'), 'utf8')) as {
+  description: string;
   inputs: Record<string, { description?: string; required?: boolean; default?: string }>;
   outputs: Record<string, { description?: string }>;
 };
@@ -58,7 +59,7 @@ describe('action contract', () => {
     expect(contractInputNames).toEqual(LOCKED_INPUT_ORDER);
     expect(Object.keys(actionManifest.outputs)).toEqual(LOCKED_OUTPUT_ORDER);
     expect(contractOutputNames).toEqual(LOCKED_OUTPUT_ORDER);
-    expect(actionContract.name).toBe('Postman Onboarding: GCP Spec Discovery');
+    expect(actionContract.name).toBe('Postman Enterprise Automation: GCP Spec Discovery');
   });
 
   it('keeps every action.yml output description aligned with the contract', () => {
@@ -67,6 +68,12 @@ describe('action contract', () => {
 
   it('keeps every action.yml input description aligned with the contract', () => {
     for (const name of contractInputNames) expect(actionManifest.inputs[name]?.description).toBe(actionContract.inputs[name].description);
+  });
+
+  it('keeps marketplace description within GitHub limits', () => {
+    expect(actionManifest.description.length).toBeGreaterThan(0);
+    expect(actionManifest.description.length).toBeLessThanOrEqual(125);
+    expect(actionManifest.description).toBe(actionContract.description);
   });
 
   it('GCP-CONTRACT-002: mode/project/location defaults and validation are locked', () => {
